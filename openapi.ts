@@ -37,6 +37,15 @@ const parameters = {
     schema: {
       type: 'boolean'
     }
+  },
+  startId: {
+    name: 'startId',
+    in: 'query',
+    description: 'An ID from which to start enumerating results',
+    required: true,
+    schema: {
+      type: 'string'
+    }
   }
 }
 
@@ -481,7 +490,8 @@ const paths = {
     summary: "Retrieve a collection of content from a topic",
     description: "Content can be retrieved using paginated GET requests, or as streaming JSON",
     parameters: [
-      parameters.topic
+      parameters.topic,
+      parameters.startId,
     ],
     responses: {
       '200': {
